@@ -1,0 +1,220 @@
+/* Ensure body and html are transparent */
+html,
+body {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar icons */
+.navbar {
+  color: #e6e6e6;
+  background: transparent; /* no background */
+  transition: 0.3s ease-in-out;
+  padding: 5px;
+  z-index: 1;
+  filter: drop-shadow(0 0 6px rgba(40, 40, 40, 0.6))
+    drop-shadow(0 0 10px rgba(100, 100, 100, 0.4));
+}
+
+.navbar:hover {
+  filter: drop-shadow(0 0 10px rgba(60, 60, 60, 0.9))
+    drop-shadow(0 0 18px rgba(120, 120, 120, 0.7))
+    drop-shadow(0 0 24px rgba(200, 200, 200, 0.4));
+  transform: scale(1.5);
+}
+
+.main-nav {
+  background: transparent !important;
+  position: fixed; /* float above content */
+  top: 20px; /* distance from top */
+  left: 25%; /* center horizontally */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 80px;
+  z-index: 10;
+}
+.side-nav {
+            display: flex;
+            flex-direction: column;
+            
+            /* KEY 1: Set base color to WHITE */
+            color: white; 
+            
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            margin-right: 20px;
+            gap: 20px;
+            background: transparent;
+            z-index: 10;
+            
+            /* KEY 2: Apply the difference blend mode for color inversion */
+            /* This makes white icons look BLACK on a white background, 
+               and WHITE on a black background. */
+            mix-blend-mode: difference; 
+        }
+
+        .sidenav {
+            background: transparent;
+            border-radius: 20px;
+            /* KEY 3: Set border color to WHITE */
+            border: 2px solid white; 
+            padding: 10px;
+            font-size: 38px; /* Set font-size here for icon size */
+            cursor: pointer;
+        }
+
+/*      Email      */
+.email-container {
+  right: 15vw;
+  position: absolute;
+  top: 100%;
+  font-family: Century Gothic;
+  background: transparent;
+}
+.email-sub {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* --- Base Styles --- */
+.email-hover {
+  display: inline-flex; /* Aligns the arrow and email on one line */
+  align-items: center; /* Vertically centers the items */
+  cursor: pointer; /* Indicates the element is clickable */
+  text-decoration: none; /* Important for clean start */
+  margin-left: 50%;
+}
+
+.arrow {
+  color: black;
+  font-size: 1.2em;
+  margin-right: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.email {
+  color: black;
+  font-size: 1.3em;
+  font-weight: 600;
+  position: relative;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+/* --- Underline Animation Setup --- */
+.email::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Position the line slightly below the text */
+  left: 0;
+  width: 0; /* Start with zero width (hidden) */
+  height: 1px;
+  background-color: grey;
+
+  /* Enable smooth width transition for the animation */
+  transition: width 1s ease;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* --- HOVER EFFECTS --- */
+
+.email-hover:hover .arrow {
+  /* 1. Arrow rotates -45 degrees on the X-axis (if you meant Z-axis for flat rotation, use rotateZ) */
+  transform: rotateZ(45deg);
+
+  /* 2. Arrow colour changes to grey */
+  color: grey;
+}
+
+.email-hover:hover .email {
+  /* 3. Email text colour changes to grey */
+  color: grey;
+}
+
+.email-hover:hover .email::after {
+  /* 4. Underline animation: line expands to full width */
+  width: 100%;
+}
+
+/*       work-container       */
+.email-container2 {
+  left: 10vw;
+  position: absolute;
+  top: 120%;
+  font-family: Century Gothic;
+  background: transparent;
+}
+
+.email-sub2 {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* --- Base Styles --- */
+.email-hover2 {
+  display: inline-flex; /* Aligns the arrow and email on one line */
+  align-items: center; /* Vertically centers the items */
+  cursor: pointer; /* Indicates the element is clickable */
+  text-decoration: none; /* Important for clean start */
+  margin-left: 50%;
+}
+
+.arrow2 {
+  color: black;
+  font-size: 1.2em;
+  margin-right: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.email2 {
+  color: black;
+  font-weight: 600;
+  font-size: 1.5em;
+  position: relative;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+/* --- Underline Animation Setup --- */
+.email2::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Position the line slightly below the text */
+  left: 0;
+  width: 0; /* Start with zero width (hidden) */
+  height: 1px;
+  background-color: grey;
+
+  /* Enable smooth width transition for the animation */
+  transition: width 1s ease;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* --- HOVER EFFECTS --- */
+
+.email-hover2:hover .arrow2 {
+  /* 1. Arrow rotates -45 degrees on the X-axis (if you meant Z-axis for flat rotation, use rotateZ) */
+  transform: rotateZ(45deg);
+
+  /* 2. Arrow colour changes to grey */
+  color: grey;
+}
+
+.email-hover2:hover .email2 {
+  /* 3. Email text colour changes to grey */
+  color: grey;
+}
+
+.email-hover2:hover .email2::after {
+  /* 4. Underline animation: line expands to full width */
+  width: 100%;
+}

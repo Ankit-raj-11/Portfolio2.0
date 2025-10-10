@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap");
+
+* {
+  background-color: #dadbde;
+}
+.raleway-txt {
+  position: absolute;
+  top: 0;   /* move to vertical center */
+  left: 15%;  /* move to horizontal center */
+  transform: translate(-50%, -50%); /* adjust for perfect centering */
+  font-size: 30rem; /* increase size (adjust as needed) */
+  z-index: 2;
+  font-family: "Zhi Mang Xing", cursive;
+  color: rgba(60, 60, 60, 0.9);
+  user-select: none;   /* avoid accidental selection */
+  pointer-events: none; /* text won’t block clicks */
+  background: none;
+}
+.png1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: -80px;
+  width: 90%;
+  height: auto;
+  background: transparent;
+  z-index: 2;
+}
+
+.img-top-right {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  right: 50%;
+  width: 65vh;
+  height: auto;
+  background: transparent;
+  z-index: 2;
+  transform: translateX(50%);
+  animation: slideLeft ease-out 1s forwards;
+}
+@keyframes slideLeft {
+  to {
+    transform: translateX(0);
+  }
+
+
+}
+.png2{
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 500px;
+  width: 35%;
+  height: auto;
+  background: transparent;
+  opacity: 0.5;
+  z-index: 2;
+}

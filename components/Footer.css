@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
+
+.footer {
+  margin-top: 1000vh;
+  background-color: #222; /* Darker background for contrast */
+  height: 100vh;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden; /* Use hidden to keep all inside and prevent scrollbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 20px solid #222;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.footer-container {
+  background-color: #222;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech {
+  position: absolute;
+  border: 2px solid white;
+  /* THESE DIMENSIONS ARE USED IN JS PHYSICS CALCULATIONS */
+  width: 300px;
+  height: 50px;
+  /* --------------------------------------------------- */
+  border-radius: 50px;
+  text-align: center;
+  align-content: center;
+  background: none;
+  color: white;
+  font-weight: 600;
+  user-select: none;
+  will-change: transform;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.end{
+  margin-top: -30%;
+  background: none;
+  color: white;
+  font-size: 3rem;
+  font-family: "Atma", system-ui;
+  font-weight: 600;
+  font-style: normal;
+}
