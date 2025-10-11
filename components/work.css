@@ -3,7 +3,7 @@
  * - 'height' ensures the items have a fixed vertical space to fill
  */
 .work-gallery-container {
-  top: 880%;
+  top: 890%;
   position: absolute;
   display: flex;
   height: 80vh; /* Takes up 80% of the viewport height */

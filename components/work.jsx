@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import img1 from "../src/assets/p1.png";
 import img2 from "../src/assets/p2.png";
 import img3 from "../src/assets/p3.png";
-import img4 from "../src/assets/img.png";
+import img4 from "../src/assets/p4.png";
 
 import "./work.css";
 

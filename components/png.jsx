@@ -1,6 +1,6 @@
 import png5 from "../src/assets/png/png8.png";
 import "../components/pngtxt.scss";
-import png4 from "../src/assets/png/png4.png";
+
 
 
 function BGIMG() {

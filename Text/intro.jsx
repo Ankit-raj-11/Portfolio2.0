@@ -49,7 +49,7 @@ export default function Intro() {
 
   return (
     <>
-      <div className="all">
+     
         <div className="discription">
           <div className="intro" ref={textRef}>
             Hi, I’m [ANKIT] - a Full-Stack Developer passionate about building
@@ -58,7 +58,6 @@ export default function Intro() {
               |
             </span>
           </div>
-        </div>
       </div>
     </>
   );
