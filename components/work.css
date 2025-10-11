@@ -1,0 +1,82 @@
+/* * 1. Define the main container for the gallery
+ * - 'display: flex' is the core for the row layout
+ * - 'height' ensures the items have a fixed vertical space to fill
+ */
+.work-gallery-container {
+  top: 880%;
+  position: absolute;
+  display: flex;
+  height: 80vh; /* Takes up 80% of the viewport height */
+  width: 100%;
+  min-height: 500px; /* Minimum height constraint */
+  gap: 1rem; /* Small gap between images */
+  padding: 1rem;
+  background-color: #333; /* Dark background */
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* * 2. Define the styling for each individual image item
+ * - 'flex: 1' is the default state: all four items take up equal space
+ * - 'transition' is essential for the animation, applying it to 'flex' and 'filter'
+ */
+.work-item {
+  /* Default state: equal width */
+  flex: 1;
+
+  /* Animation: Apply smooth transition to flex-grow and visual filters */
+  transition: flex 0.5s ease-in-out, filter 0.5s ease-in-out;
+
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1rem;
+}
+
+.work-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Subtle zoom effect on the image itself */
+  transition: transform 0.5s;
+}
+
+.work-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Class applied by JavaScript when an item is hovered (the full expansion) */
+.work-item.is-expanded {
+  flex: 4; /* The expanded item is four times wider than the shrunk items */
+  filter: brightness(100%) grayscale(0%);
+}
+
+/* Class applied by JavaScript to all *non-hovered* items when one is expanded */
+.work-item.is-shrunk {
+  flex: 0.5; /* Shrunk items take up very little space */
+  filter: brightness(50%) grayscale(50%); /* Visually subdue the background items */
+}
+
+/*
+ * 4. Overlay Styling (for title/text)
+ */
+.work-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: black;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.685));
+  opacity: 0; /* Default hidden */
+  transition: opacity 0.3s;
+}
+
+.work-item.is-expanded .work-overlay {
+  opacity: 1;
+}
+
+.work-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}

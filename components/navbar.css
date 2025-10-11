@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 /* Ensure body and html are transparent */
 html,
 body {
@@ -8,13 +10,18 @@ body {
 
 /* Navbar icons */
 .navbar {
+   font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   color: #e6e6e6;
   background: transparent; /* no background */
   transition: 0.3s ease-in-out;
   padding: 5px;
-  z-index: 1;
   filter: drop-shadow(0 0 6px rgba(40, 40, 40, 0.6))
     drop-shadow(0 0 10px rgba(100, 100, 100, 0.4));
+  display: flex;
+  justify-self: center;
+  justify-content: center;
 }
 
 .navbar:hover {
@@ -27,44 +34,49 @@ body {
 .main-nav {
   background: transparent !important;
   position: fixed; /* float above content */
-  top: 20px; /* distance from top */
-  left: 25%; /* center horizontally */
-  transform: translateX(-50%);
+  top: 3%; /* distance from top */
+ /* center horizontally */
+
   display: flex;
-  gap: 80px;
-  z-index: 10;
+
+  justify-self: center;
+
+  gap: 100px;
+z-index: 5;
+ mix-blend-mode: difference;
+}
+.side-nav a {
+  background: none;
+  text-decoration: none;
+  color: inherit;
 }
 .side-nav {
-            display: flex;
-            flex-direction: column;
-            
-            /* KEY 1: Set base color to WHITE */
-            color: white; 
-            
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            margin-right: 20px;
-            gap: 20px;
-            background: transparent;
-            z-index: 10;
-            
-            /* KEY 2: Apply the difference blend mode for color inversion */
-            /* This makes white icons look BLACK on a white background, 
-               and WHITE on a black background. */
-            mix-blend-mode: difference; 
-        }
+  display: flex;
+  flex-direction: column;
 
-        .sidenav {
-            background: transparent;
-            border-radius: 20px;
-            /* KEY 3: Set border color to WHITE */
-            border: 2px solid white; 
-            padding: 10px;
-            font-size: 38px; /* Set font-size here for icon size */
-            cursor: pointer;
-        }
+  /* KEY 1: Set base color to WHITE */
+  color: white;
+
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-right: 20px;
+  gap: 20px;
+  background: transparent;
+  z-index: 10;
+  mix-blend-mode: difference;
+}
+.sidenav {
+  background: transparent;
+  border-radius: 50px;
+  /* KEY 3: Set border color to WHITE */
+  border: 2px solid white;
+  padding: 5px;
+  font-size: 38px; /* Set font-size here for icon size */
+  cursor: pointer;
+
+}
 
 /*      Email      */
 .email-container {

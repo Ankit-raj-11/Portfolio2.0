@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 
-html,
+html {
+    /* Makes the transition smooth when navigating with anchor links */
+    scroll-behavior: smooth; 
+}
 body {
   margin: 0;
   padding: 0;
@@ -76,7 +79,7 @@ body::before {
 }
 .design3{
   position: absolute;
-  top:840%;
+  top:850%;
   right: 5%;
  font-family: "Squada One", sans-serif;
   font-weight: 400;
@@ -86,7 +89,31 @@ body::before {
 }
 .design3_3{
   position: absolute;
-  top:840%;
+  top:850%;
+  left: 5%;
+ font-family: "Squada One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+
+.design5{
+  position: absolute;
+  top:985%;
+  right: 5%;
+ font-family: "Squada One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  background: none;
+  color:black;
+}
+.design5_5{
+  color: black;
+  background: none;
+  position: absolute;
+  top:985%;
   left: 5%;
  font-family: "Squada One", sans-serif;
   font-weight: 400;
