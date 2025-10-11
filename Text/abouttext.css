@@ -1,41 +1,59 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap");
 
 .text-container {
-  position: absolute;
-  top: 150%;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: none;
-  z-index: 1;
+    position: absolute;
+    /* Use vh instead of fixed % to make vertical positioning relative to screen height */
+    top: 150vh; 
+    width: 100%;
+    /* Use a fixed, but manageable height. We'll adjust for mobile later. */
+    height: 200px; 
+    overflow: hidden;
+    background: none;
+    z-index: 1;
 }
 
 .text {
-  /* This is now handled by the JS/span structure */
-  background: none;
-  background-color: transparent;
+    /* This is now handled by the JS/span structure */
+    background: none;
+    background-color: transparent;
 
-  position: absolute;
-  top: -10%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
 
-  color: black;
-  
-
-  font: 150px "feet", sans-serif;
+    color: black;
+    
+    /* Use VW for responsive scaling */
+    font-size: 12vw; /* Scales with viewport width, replacing 150px */
     font-weight: 700;
+    font-family: "feet", sans-serif; /* Keeping the original font-family reference */
 
-     letter-spacing: -15px; 
-  z-index: 2;
+    /* Use VW for responsive spacing */
+    letter-spacing: -1.5vw; /* Scales with viewport width, replacing -15px */
+    z-index: 2;
 }
 
 /* * Optional: Also target the individual letters (spans) created by GSAP 
 * to ensure no default styles interfere with the transparency 
 */
 .text span {
- transform: scaleY(1.2);
-  background: none !important;
-  background-color: transparent !important;
+    transform: scaleY(1.2);
+    background: none !important;
+    background-color: transparent !important;
+}
+
+/* --- MOBILE RESPONSIVENESS (Screens up to 768px wide) --- */
+@media (max-width: 768px) {
+    .text-container {
+        height: 150px; /* Slightly shorter container on mobile */
+    }
+    
+    .text {
+        /* Increase the font size slightly for better visibility on small screens */
+        font-size: 15vw; 
+        /* Adjust spacing to prevent character overlap on tiny screens */
+        letter-spacing: -2vw; 
+    }
 }

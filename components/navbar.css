@@ -1,232 +1,270 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
-/* Ensure body and html are transparent */
+/* Base Styles (Desktop First / Universal) */
 html,
 body {
-  background: transparent;
-  margin: 0;
-  padding: 0;
+    background: transparent;
+    margin: 0;
+    padding: 0;
 }
 
-/* Navbar icons */
+/* Base Navbar Item Style */
 .navbar {
-   font-family: "Michroma", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #e6e6e6;
-  background: transparent; /* no background */
-  transition: 0.3s ease-in-out;
-  padding: 5px;
-  filter: drop-shadow(0 0 6px rgba(40, 40, 40, 0.6))
-    drop-shadow(0 0 10px rgba(100, 100, 100, 0.4));
-  display: flex;
-  justify-self: center;
-  justify-content: center;
+    font-family: "Michroma", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #e6e6e6;
+    background: transparent;
+    transition: 0.3s ease-in-out;
+    padding: 5px;
+    filter: drop-shadow(0 0 6px rgba(40, 40, 40, 0.6))
+      drop-shadow(0 0 10px rgba(100, 100, 100, 0.4));
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    font-size: 1rem; /* Added base font-size for better control */
 }
 
 .navbar:hover {
-  filter: drop-shadow(0 0 10px rgba(60, 60, 60, 0.9))
-    drop-shadow(0 0 18px rgba(120, 120, 120, 0.7))
-    drop-shadow(0 0 24px rgba(200, 200, 200, 0.4));
-  transform: scale(1.5);
+    filter: drop-shadow(0 0 10px rgba(60, 60, 60, 0.9))
+      drop-shadow(0 0 18px rgba(120, 120, 120, 0.7))
+      drop-shadow(0 0 24px rgba(200, 200, 200, 0.4));
+    transform: scale(1.5);
 }
 
+/* Main Navigation Container (Top Bar) */
 .main-nav {
-  background: transparent !important;
-  position: fixed; /* float above content */
-  top: 3%; /* distance from top */
- /* center horizontally */
-
-  display: flex;
-
-  justify-self: center;
-
-  gap: 100px;
-z-index: 5;
- mix-blend-mode: difference;
+    background: transparent !important;
+    position: fixed;
+    top: 3%;
+    display: flex;
+    justify-self: center;
+    /* Centering logic: using fixed position with left/right 0 and margin: auto */
+    left: 0; 
+    right: 0;
+    width: fit-content; /* Ensure it only takes the space needed */
+    margin: 0 auto; 
+    gap: 100px; /* Large gap for desktop */
+    z-index: 5;
+    mix-blend-mode: difference;
 }
+
+/* Side Navigation Container (Right Bar) */
 .side-nav a {
-  background: none;
-  text-decoration: none;
-  color: inherit;
+    background: none;
+    text-decoration: none;
+    color: inherit;
 }
 .side-nav {
-  display: flex;
-  flex-direction: column;
-
-  /* KEY 1: Set base color to WHITE */
-  color: white;
-
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  margin-right: 20px;
-  gap: 20px;
-  background: transparent;
-  z-index: 10;
-  mix-blend-mode: difference;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-right: 20px; /* Desktop margin */
+    gap: 20px; /* Desktop gap */
+    background: transparent;
+    z-index: 10;
+    mix-blend-mode: difference;
 }
 .sidenav {
-  background: transparent;
-  border-radius: 50px;
-  /* KEY 3: Set border color to WHITE */
-  border: 2px solid white;
-  padding: 5px;
-  font-size: 38px; /* Set font-size here for icon size */
-  cursor: pointer;
-
+    background: transparent;
+    border-radius: 50px;
+    border: 2px solid white;
+    padding: 5px;
+    font-size: 38px; /* Desktop icon size */
+    cursor: pointer;
 }
 
-/*      Email      */
+/* ---------------------------------------------------------------------- */
+/* --- MOBILE RESPONSIVENESS (Screens up to 768px wide) --- */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    
+    /* Main Navigation (Top Bar) */
+    .main-nav {
+        /* Reduce the gap between navigation items */
+        gap: 20px; 
+    }
+    
+    .navbar {
+        /* Slightly reduce font size for smaller screens */
+        font-size: 0.9rem;
+        /* Reduce scale on hover to prevent elements from going off-screen */
+        transform: scale(1);
+    }
+
+    .navbar:hover {
+        /* Reduce the hover scale to a more reasonable size for mobile */
+        transform: scale(1.2); 
+    }
+
+    /* Side Navigation (Right Bar) */
+    .side-nav {
+        /* Move closer to the edge */
+        margin-right: 10px; 
+        /* Reduce the gap between icons */
+        gap: 10px; 
+    }
+    
+    .sidenav {
+        /* Reduce icon size */
+        font-size: 28px; 
+        /* Reduce padding */
+        padding: 3px; 
+    }
+
+    /* Email Containers (Need specific adjustments for smaller screens) */
+    .email-container, .email-container2 {
+        /* Use static positioning or slightly adjust positioning */
+        right: auto;
+        left: 50%; /* Center the container relative to the screen width */
+        transform: translateX(-50%); /* Shift left by half its width for true centering */
+        width: 90vw; /* Ensure it doesn't cause horizontal overflow */
+        max-width: 400px;
+    }
+    
+    /* Adjust position for the two email containers to prevent overlap */
+    .email-container {
+        top: 100%; /* Keep this if content allows */
+        margin-top: 50px; /* Add some margin below the main content */
+    }
+    
+    .email-container2 {
+        top: 120%; /* Keep this if content allows */
+        margin-top: 100px; /* Add more margin for separation */
+    }
+
+    /* Adjust font size for email/sub text */
+    .email-sub, .email-sub2 {
+        font-size: 14px;
+    }
+    
+    .email, .email2 {
+        font-size: 1.1em;
+    }
+
+    /* Center the hover link itself within the constrained container */
+    .email-hover, .email-hover2 {
+        margin-left: 0; /* Remove the desktop 50% shift */
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* --- EMAIL HOVER STYLES (Unchanged, as they are proportional) --- */
+/* ---------------------------------------------------------------------- */
+
 .email-container {
-  right: 15vw;
-  position: absolute;
-  top: 100%;
-  font-family: Century Gothic;
-  background: transparent;
+    right: 15vw;
+    position: absolute;
+    top: 100%;
+    font-family: Century Gothic;
+    background: transparent;
 }
 .email-sub {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.75);
-  font-weight: 300;
-  letter-spacing: 2px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 300;
+    letter-spacing: 2px;
 }
-
-/* --- Base Styles --- */
 .email-hover {
-  display: inline-flex; /* Aligns the arrow and email on one line */
-  align-items: center; /* Vertically centers the items */
-  cursor: pointer; /* Indicates the element is clickable */
-  text-decoration: none; /* Important for clean start */
-  margin-left: 50%;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 50%; /* Desktop centering adjustment */
 }
-
 .arrow {
-  color: black;
-  font-size: 1.2em;
-  margin-right: 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
+    color: black;
+    font-size: 1.2em;
+    margin-right: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .email {
-  color: black;
-  font-size: 1.3em;
-  font-weight: 600;
-  position: relative;
-  text-decoration: underline;
-  transition: color 0.3s ease;
+    color: black;
+    font-size: 1.3em;
+    font-weight: 600;
+    position: relative;
+    text-decoration: underline;
+    transition: color 0.3s ease;
 }
-
-/* --- Underline Animation Setup --- */
 .email::after {
-  content: "";
-  position: absolute;
-  bottom: -2px; /* Position the line slightly below the text */
-  left: 0;
-  width: 0; /* Start with zero width (hidden) */
-  height: 1px;
-  background-color: grey;
-
-  /* Enable smooth width transition for the animation */
-  transition: width 1s ease;
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: grey;
+    transition: width 1s ease;
 }
-
-/* ---------------------------------------------------------------- */
-
-/* --- HOVER EFFECTS --- */
-
 .email-hover:hover .arrow {
-  /* 1. Arrow rotates -45 degrees on the X-axis (if you meant Z-axis for flat rotation, use rotateZ) */
-  transform: rotateZ(45deg);
-
-  /* 2. Arrow colour changes to grey */
-  color: grey;
+    transform: rotateZ(45deg);
+    color: grey;
 }
-
 .email-hover:hover .email {
-  /* 3. Email text colour changes to grey */
-  color: grey;
+    color: grey;
 }
-
 .email-hover:hover .email::after {
-  /* 4. Underline animation: line expands to full width */
-  width: 100%;
+    width: 100%;
 }
 
-/*       work-container       */
 .email-container2 {
-  left: 10vw;
-  position: absolute;
-  top: 120%;
-  font-family: Century Gothic;
-  background: transparent;
+    left: 10vw;
+    position: absolute;
+    top: 120%;
+    font-family: Century Gothic;
+    background: transparent;
 }
-
 .email-sub2 {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.75);
-  font-weight: 300;
-  letter-spacing: 2px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 300;
+    letter-spacing: 2px;
 }
-
-/* --- Base Styles --- */
 .email-hover2 {
-  display: inline-flex; /* Aligns the arrow and email on one line */
-  align-items: center; /* Vertically centers the items */
-  cursor: pointer; /* Indicates the element is clickable */
-  text-decoration: none; /* Important for clean start */
-  margin-left: 50%;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 50%; /* Desktop centering adjustment */
 }
-
 .arrow2 {
-  color: black;
-  font-size: 1.2em;
-  margin-right: 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
+    color: black;
+    font-size: 1.2em;
+    margin-right: 10px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-
 .email2 {
-  color: black;
-  font-weight: 600;
-  font-size: 1.5em;
-  position: relative;
-  text-decoration: underline;
-  transition: color 0.3s ease;
+    color: black;
+    font-weight: 600;
+    font-size: 1.5em;
+    position: relative;
+    text-decoration: underline;
+    transition: color 0.3s ease;
 }
-
-/* --- Underline Animation Setup --- */
 .email2::after {
-  content: "";
-  position: absolute;
-  bottom: -2px; /* Position the line slightly below the text */
-  left: 0;
-  width: 0; /* Start with zero width (hidden) */
-  height: 1px;
-  background-color: grey;
-
-  /* Enable smooth width transition for the animation */
-  transition: width 1s ease;
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: grey;
+    transition: width 1s ease;
 }
-
-/* ---------------------------------------------------------------- */
-
-/* --- HOVER EFFECTS --- */
-
 .email-hover2:hover .arrow2 {
-  /* 1. Arrow rotates -45 degrees on the X-axis (if you meant Z-axis for flat rotation, use rotateZ) */
-  transform: rotateZ(45deg);
-
-  /* 2. Arrow colour changes to grey */
-  color: grey;
+    transform: rotateZ(45deg);
+    color: grey;
 }
-
 .email-hover2:hover .email2 {
-  /* 3. Email text colour changes to grey */
-  color: grey;
+    color: grey;
 }
-
 .email-hover2:hover .email2::after {
-  /* 4. Underline animation: line expands to full width */
-  width: 100%;
+    width: 100%;
 }
