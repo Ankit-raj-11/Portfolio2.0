@@ -1,38 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+@layer utilities {
+    @keyframes slideLeft {
+        to {
+            transform: translateX(0);
+        }
+    }
+}
 
 html {
     /* Makes the transition smooth when navigating with anchor links */
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #dadbde;
+    scroll-snap-type: y proximity;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+section {
+    scroll-margin-top: 0px;
+    /* Reset for full page snappy feeling */
 }
 
 body {
     margin: 0;
     padding: 0;
-    cursor: none;
-    background: #dadbde; /* fallback */
+
+    /* Cursor hidden ONLY on devices with fine pointer (mouse) */
+    @media (hover: hover) and (pointer: fine) {
+        cursor: none;
+    }
+
+    background-color: transparent !important;
     /* 💡 FIX: This prevents all horizontal scrolling */
-    overflow-x: hidden; 
+    overflow-x: hidden;
+}
+
+/* Accessibility: Show high-contrast outline only for keyboard users */
+:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
 }
 
 
 /* Standalone background layer */
+/* Standalone background layer */
 body::before {
     content: "";
-    position: fixed; /* stays locked to screen */
+    position: fixed;
+    /* stays locked to screen */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    /* Changed from 100vw to avoid scrollbar width calculation issues */
+    height: 100dvh;
     background-color: #dadbde;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.062) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.062) 1px, transparent 0.5px);
-    background-size: 50px 50px;
-    z-index: -1; /* always behind everything */
-    pointer-events: none; /* won’t block clicks */
+    /* background-image removed as per user request */
+    z-index: -1;
+    /* always behind everything */
+    pointer-events: none;
+    /* won’t block clicks */
 }
 
 * {
@@ -40,94 +78,6 @@ body::before {
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Positioning large fixed-width elements (like the design classes below) 
-   can sometimes cause minor overflow, but 'overflow-x: hidden;' should handle it.
-*/
-.design1{
-    position: absolute;
-    top:10%;
-    right: 5%;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-}
-.design1_1{
-    position: absolute;
-    top:10%;
-    left: 5%;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-}
-.design2{
-    position: absolute;
-    top:190%;
-    right: 5%;
-    color: white;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    background: none;
-}
-.design2_2{
-    position: absolute;
-    top:190%;
-    left: 5%;
-    color: white;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    background: none;
-}
-.design3{
-    position: absolute;
-    top:850%;
-    right: 5%;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    background: none;
-}
-.design3_3{
-    position: absolute;
-    top:850%;
-    left: 5%;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-}
-
-
-.design5{
-    position: absolute;
-    top:985%;
-    right: 5%;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    background: none;
-    color:black;
-}
-.design5_5{
-    color: black;
-    background: none;
-    position: absolute;
-    top:985%;
-    left: 5%;
-    font-family: "Squada One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-}
-
 
 /* Apply this CSS to the canvas element using the className="webgl-blend-cursor" */
 .webgl-blend-cursor {
@@ -138,6 +88,15 @@ body::before {
 /* Example styling for your scrollable black section */
 .black-section {
     background-color: black;
-    color: white; /* Text color for visibility on black section */
+    color: white;
+    /* Text color for visibility on black section */
     /* Ensure this section is part of your scrollable content */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    body::before {
+        /* Finer grid for smaller screens */
+        background-size: 25px 25px;
+    }
 }
